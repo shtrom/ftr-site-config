@@ -35,7 +35,7 @@ strip://ul[contains(@class, 'meta__social')]
 
 # Remove the insane "conjugaison.lemonde.fr" links:
 find_string: <a target='_blank' onclick='return false;' class='lien_interne conjug'
-replace_string: <input type='hidden' style='display:none;' 
+replace_string: <input type='hidden' style='display:none;'
 
 # Remove the insane cross-linking categories "Toute l’actualité"
 find_string: <a class="lien_interne rub"
@@ -53,7 +53,6 @@ login_password_field: connection[password]
 login_extra_fields: connection[_token]=@=xpath("//form//input[@id='connection__token']", request_html(config.getLoginUri()))
 
 not_logged_in_xpath: //section[contains(concat(' ',normalize-space(@class),' '),' paywall__container ')]//p[@class='paywall__login']
-
 
 prune: no
 
