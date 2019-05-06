@@ -1,4 +1,6 @@
-http_header(user-agent): PHP/5.3
+title: //head/title
+author: //meta[@name="author"]/@content
+body: //div[contains(@class, 'post-content')]
+strip: //div[contains(@class, 'content-summary')]
 
-test_url: http://jezebel.com/ryan-adams-has-not-been-mad-for-15-years-and-thats-a-pr-1792192941
-test_contains: Adams details an occasion in 2002
+test_url: https://pictorial.jezebel.com/how-the-blacklist-shut-progressive-women-out-of-tv-and-1830547491

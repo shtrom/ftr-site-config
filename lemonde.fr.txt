@@ -8,15 +8,17 @@ date: //time[@itemprop='dateModified']/@datetime
 # Publication date
 date: //time[@itemprop='datePublished']/@datetime
 
-body: //section[@class='article__content']
-
+body: //section[contains(concat(' ',normalize-space(@class), ' '), ' article__content ')]
 # Another body selector and strip for video-only links
 body: //section[contains(concat(' ',normalize-space(@class), ' '), ' video ')]
-strip: //div[contains(concat(' ',normalize-space(@class), ' '), ' related-content--video ')]
 
+strip: //div[contains(concat(' ',normalize-space(@class), ' '), ' related-content--video ')]
 
 # Remove "Lire aussi" blocks
 strip: //section[contains(concat(' ',normalize-space(@class),' '),' catcher ')]
+
+# Remove "Lire aussi" paragraphs (just containing "Lire" in strong and a link)
+strip: //p[contains(strong, 'Lire') and a]
 
 # Remove comments
 strip: //*[contains(@class, 'comments')]
@@ -24,16 +26,23 @@ strip: //*[contains(@class, 'comments')]
 # Remove "Article réservé aux abonnés"
 strip: //p[@class='article__status']
 
+# Remove quotes highlighted in articles, doublons with content
+# We use parent::blockquote to avoid a remaining empty blockquote node
+strip: //p[@class='article__quote']/parent::blockquote
+
 # Remove share buttons
 strip://ul[contains(@class, 'meta__social')]
 
 # Remove the insane "conjugaison.lemonde.fr" links:
 find_string: <a target='_blank' onclick='return false;' class='lien_interne conjug'
-replace_string: <input type='hidden' style='display:none;' 
+replace_string: <input type='hidden' style='display:none;'
 
 # Remove the insane cross-linking categories "Toute l’actualité"
 find_string: <a class="lien_interne rub"
 replace_string: <input type="hidden" style="display:none;"
+
+# Remove some inline stylesheets
+strip: //link[@rel='stylesheet']
 
 requires_login: yes
 
@@ -44,7 +53,6 @@ login_password_field: connection[password]
 login_extra_fields: connection[_token]=@=xpath("//form//input[@id='connection__token']", request_html(config.getLoginUri()))
 
 not_logged_in_xpath: //section[contains(concat(' ',normalize-space(@class),' '),' paywall__container ')]//p[@class='paywall__login']
-
 
 prune: no
 
