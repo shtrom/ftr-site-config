@@ -1,6 +1,10 @@
 tidy: no
 prune: no
 
+# As of 2020, this cookie is required
+# The value can be anything, as long as it is set at all
+http_header(Cookie): zonconsent=2022-09-03T19:45:59.150Z
+
 # Figures are wrapped in a noscript tag which is itself wrapped in a
 # conditional comment. Feed readers will fail to parse this correctly
 # so get rid of the noscript tag altogether.
@@ -10,6 +14,7 @@ title: //meta[@property='og:title']/@content
 date: //meta[@name='date']/@content
 
 strip: //span[@class='figure__copyright']
+strip: //aside
 
 # Self advertisements
 strip: //figure[@class='figure-stamp']
