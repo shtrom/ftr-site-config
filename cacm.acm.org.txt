@@ -1,6 +1,7 @@
-# error code: 1020
 http_header(referer): https://cacm.acm.org
-requires_login: true
+# error code: 1020
+http_header(User-agent): Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:85.0) Gecko/20100101 Firefox/85.0
+#requires_login: true
 not_logged_in_xpath: //input[@id='userNameInPage']
 login_uri: https://cacm.acm.org/login
 login_username_field: current_member[user]
