@@ -32,6 +32,7 @@ strip_id_or_class:related-coverage
 strip_id_or_class:ad-header
 strip_id_or_class:bottom-ad
 strip_id_or_class:advert_item
+strip_id_or_class:burst-app
 strip://a[contains(@href, 'nytimes.com/adx/')]
 strip: //nyt_byline
 strip: //span[contains(@class, 'slideshow') or contains(@class, 'video')]
@@ -51,6 +52,13 @@ strip: //span/span[contains(text(), 'Credit')]
 strip: //span/span/span[contains(text(), 'Credit')]
 strip: //img[contains(@class, 'post-screenshot')]
 
+# August 2022
+strip_id_or_class: sponsor-wrapper
+# Preserve figcaptions, which can also have aria-hidden="true" inside
+strip: //*[@aria-hidden="true" and not(./parent::figcaption)]
+strip: //*[@data-testid="share-tools"]
+strip: //*[contains(@id, '-recirc')]
+
 # If HTML parsed by JS... 
 # let's remove duplicate images
 strip: //div[contains(@style, "visibility: hidden")]//picture
@@ -62,8 +70,9 @@ strip_id_or_class: robots-nocontent
 strip_id_or_class: hidden
 strip_id_or_class: NYT_MAIN_CONTENT_1_REGION
 strip_id_or_class: related-links-block
+strip_id_or_class: g-LABELS
 
-http_header(user-agent): PHP/7.4
+http_header(user-agent): curl/7.83.1
 
 prune: no
 tidy: no
