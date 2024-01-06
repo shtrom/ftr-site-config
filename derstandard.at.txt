@@ -1,3 +1,7 @@
+## if you change anything, make shure you copy this between
+##  derstandard.at.txt  and  derstandard.de.txt
+##              ^^                       ^^
+
 # choose your feed here:
 # https://about.derstandard.at/newsletter/rss-feeds/
 
@@ -29,6 +33,7 @@ strip: //aside[@data-type='supplemental']
 strip: //div[@class='article-byline']
 strip: //div[@class='article-meta']
 strip: //footer[starts-with(text(), 'Foto:')]
+strip: //div[@data-section-type='newsletter']
 
 find_string: 0 ? postingCount() : '' ">
 replace_string:
