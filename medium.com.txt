@@ -38,22 +38,22 @@ prune: no
 
 ###  selfhosters may uncomment this to have images in their articles.
 ###  rewrites image-links to plain html
-#find_string: source srcSet="http
-#replace_string: img src="http
-#find_string: source srcset="http
-#replace_string: img src="http
-#find_string: .png 640w
-#replace_string: .png"><foo bar="
-#find_string: .jpg 1400w
-#replace_string: .jpg"><foo bar="
-#find_string: .jpg 640w
-#replace_string: .jpg"><foo bar="
-#find_string: .jpeg 1400w
-#replace_string: .jpeg"><foo bar="
-#find_string: .jpeg 640w
-#replace_string: .jpeg"><foo bar="
-#find_string: .gif 640w
-#replace_string: .gif"><foo bar="
+find_string: source srcSet="http
+replace_string: img src="http
+find_string: source srcset="http
+replace_string: img src="http
+find_string: .png 640w
+replace_string: .png"><foo bar="
+find_string: .jpg 1400w
+replace_string: .jpg"><foo bar="
+find_string: .jpg 640w
+replace_string: .jpg"><foo bar="
+find_string: .jpeg 1400w
+replace_string: .jpeg"><foo bar="
+find_string: .jpeg 640w
+replace_string: .jpeg"><foo bar="
+find_string: .gif 640w
+replace_string: .gif"><foo bar="
 
 ### VERY BRAVE self-hosters may try to acticate this block INSTEAD
 ### helps to show also images with no filename extension.
